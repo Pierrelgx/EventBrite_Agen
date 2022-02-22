@@ -3,6 +3,8 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+#Le mailer est important dans Devise. Sans ce dernier, les utilisateurs qui ont perdu leur mot de passe n'ont plus accès à ton application et c'est pas ouf... L'avantage est que si ton mailer est bien branché, tout devrait être fonctionnel immédiatement, sauf une chose : il faut donner l'url de ton application pour la redirection. Je m'explique : quand tu vas recevoir un email pour récupérer ton mot de passe, l'email va te donner un lien à cliquer qui va rediriger vers l'application sur un formulaire pour changer le mot de passe. Il faut donc dire à Rails "pour la production (sur Heroku), l'URL de mon app est : monapp.herokuapp.com".
+  config.action_mailer.default_url_options = { :host => 'YOURAPPNAME.herokuapp.com' }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
