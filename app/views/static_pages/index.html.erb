@@ -7,8 +7,9 @@
 
 <ul>
   <% if user_signed_in? %>
+  
     <li>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %> 
     </li>
     
 
@@ -25,8 +26,8 @@
     </li>
 
   <% else %>
-    <li>    
-      <%= link_to "Sign in", new_user_session_path %>
+    <li><button type="button" class="btn btn-success">
+       <%= link_to "Sign in", new_user_session_path %></button>
     </li>
 
     
